@@ -14,6 +14,7 @@ spec:
     - techsolutions.yourdomain.com
     secretName: techsolutions-tls
   rules:
+  # Rule for custom domain
   - host: techsolutions.yourdomain.com
     http:
       paths:
@@ -24,6 +25,8 @@ spec:
             name: techsolutions-service
             port:
               number: 80
+
+  # Rule to allow access without host (e.g. ELB DNS directly)
   - http:
       paths:
       - path: /
@@ -33,3 +36,4 @@ spec:
             name: techsolutions-service
             port:
               number: 80
+
